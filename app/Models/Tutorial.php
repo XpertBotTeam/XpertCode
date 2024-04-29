@@ -9,12 +9,14 @@ class Tutorial extends Model
 {
     use HasFactory;
 
+    protected $table = 'tutorial';
     protected $fillable = [
         'title',
         'description',
         'content',
         'author',
     ];
+
 
     public function exercises()
     {

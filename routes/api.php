@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\UserController;
+use App\Http\Controllers\API\TutorialController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -16,6 +17,8 @@ use App\Http\Controllers\API\UserController;
 Route::post('/login',[\App\Http\Controllers\API\UserController::class,'login']);
 Route::post('/register',[\App\Http\Controllers\API\UserController::class,'register']);
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['middleware'=>['auth:sanctum']],function (){
+        Route::resource('tutorials',\App\Http\Controllers\API\TutorialController::class);
 });
+
+
