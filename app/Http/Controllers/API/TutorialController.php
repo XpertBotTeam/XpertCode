@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\TutorialRequest;
 use App\Models\Tutorial;
+use App\Models\Exercise;
 
 class TutorialController extends Controller
 {
@@ -91,5 +92,28 @@ class TutorialController extends Controller
             ]);
         }
     }
+
+    public function exercises($id, Request $request)
+    {
+
+        $tutorial = Tutorial::find($id);
+        if (!is_null($tutorial)) {
+
+            $exercises = $tutorial->exercises;
+            return response()->json([
+                'status' => true,
+                'data' => $exercises,
+                'message' => 'exercises for a specific tutorial'
+            ]);
+        } else {
+            return response()->json([
+                'status' => false,
+                'data' => null,
+                'message' => 'tutorial not found'
+            ]);
+        }
+    }
+
+
 }
 

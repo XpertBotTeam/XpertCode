@@ -26,7 +26,7 @@ class Feedback extends Model
 
     public function exercises()
     {
-        return $this->belongsTo(Exercises::class);
+        return $this->belongsTo(Exercise::class);
     }
 
 }

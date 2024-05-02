@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Exercises extends Model
+class Exercise extends Model
 {
     use HasFactory;
 
@@ -14,6 +14,8 @@ class Exercises extends Model
         'description',
         'content',
         'author',
+        'user_id',
+        'tutorial_id'
     ];
 
     public function user()
@@ -30,4 +32,5 @@ class Exercises extends Model
     {
         return $this->hasMany(Feedback::class);
     }
+
 }
