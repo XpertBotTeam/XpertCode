@@ -11,6 +11,11 @@ use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
 class UserController extends Controller
 {
+
+    public function loginForm()
+    {
+        return view('login');
+    }
     public function login(LoginRequest $request)
     {
         $email = $request->get('email');
@@ -33,7 +38,10 @@ class UserController extends Controller
             ]);
         }
     }
-
+    public function signupForm()
+    {
+        return view('register');
+    }
     public function register(RegisterRequest $request)
     {
         $user = new User();
