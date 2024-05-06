@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\UserController;
+use App\Http\Controllers\API\TutorialController;
+
 
 
 /*
@@ -14,9 +16,16 @@ use App\Http\Controllers\API\UserController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::redirect('/', '/login');
+
+
 Route::get('/register', [UserController::class, 'signupForm'])->name('register');
 Route::post('/register', [UserController::class, 'register'])->name('register');
 
 
 Route::get('/login', [UserController::class, 'loginForm'])->name('login');
 Route::post('/login', [UserController::class, 'login'])->name('login');
+
+
+Route::get('/tutorials', [TutorialController::class, 'index'])->name('tutorials');

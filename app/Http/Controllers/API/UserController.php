@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
+
 class UserController extends Controller
 {
 
@@ -16,6 +17,7 @@ class UserController extends Controller
     {
         return view('login');
     }
+
     public function login(LoginRequest $request)
     {
         $email = $request->get('email');
@@ -26,28 +28,30 @@ class UserController extends Controller
             $user = auth()->user();
             $access_token = $user->createToken('authToken')->plainTextToken;
 
-            return response()->json([
+            return redirect()->route('tutorials')->with([
                 'status' => 'true',
                 'message' => "User Authenticated Successfully",
-                'token' => $access_token
-            ]);
+                'token' => $access_token]);
         } else {
             return response()->json([
                 'status' => 'false',
                 'message' => "Invalid Username or Password"
             ]);
         }
+
     }
+
     public function signupForm()
     {
         return view('register');
     }
+
     public function register(RegisterRequest $request)
     {
         $user = new User();
         $user->name = $request->get('name');
         $user->email = $request->get('email');
-        $user->password=bcrypt($request->get('password'));
+        $user->password = bcrypt($request->get('password'));
         $user->save();
 
         $access_token = $user->createToken('authToken')->plainTextToken;

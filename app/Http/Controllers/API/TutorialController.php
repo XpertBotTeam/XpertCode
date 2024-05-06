@@ -15,12 +15,12 @@ class TutorialController extends Controller
      */
     public function index()
     {
-        $tutorial = Tutorial::all();
-        return response()->json([
-            'status' => true,
-            'data' => $tutorial,
-            'message' => 'list of tutorials'
+        $tutorials = Tutorial::all();
+        return view('Tutorials', [
+            'tutorials' => $tutorials,
+            'message' => 'List of tutorials'
         ]);
+
     }
 
     /**

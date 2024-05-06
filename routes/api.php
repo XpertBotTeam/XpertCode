@@ -17,6 +17,7 @@ use App\Http\Controllers\API\ExerciseController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+
 Route::post('/login', [\App\Http\Controllers\API\UserController::class, 'login']);
 Route::post('/register', [\App\Http\Controllers\API\UserController::class, 'register']);
 
