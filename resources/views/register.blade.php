@@ -6,6 +6,7 @@
     <title>XpertCode - Register</title>
     <link rel="stylesheet" href="app.css">
 </head>
+
 <body>
 <div class="register-container">
     <form class="register-form" action="{{route('register')}}" method="post">
