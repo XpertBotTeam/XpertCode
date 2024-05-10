@@ -1,0 +1,64 @@
+/* resources/views/css/show.css */
+
+/* Container styles */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Heading styles */
+h1 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #343a40; /* Dark color */
+}
+
+/* Paragraph styles */
+p {
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: justify;
+    margin-bottom: 30px;
+    color: #555; /* Dark gray color */
+}
+
+/* Link styles */
+a {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 18px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff; /* White color */
+    background-color: #343a40; /* Dark color */
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a:hover {
+    background-color: #ffcc00; /* Yellow color */
+    color: #343a40; /* Dark color */
+}
+
+/* Form styles */
+form {
+    text-align: center;
+}
+
+button {
+    padding: 12px 24px;
+    font-size: 18px;
+    text-align: center;
+    color: #fff; /* White color */
+    background-color: #ffcc00; /* Yellow color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover {
+    background-color: #343a40; /* Dark color */
+}

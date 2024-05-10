@@ -23,19 +23,24 @@ class TutorialController extends Controller
 
     }
 
+
+    public function create()
+    {
+        return view('tutorials.create');
+    }
     /**
      * Store a newly created resource in storage.
      */
     public function store(TutorialRequest $request)
     {
         $tutorial = Tutorial::create($request->all());
-        return response()->json([
+        return view('tutorials.create', [
             'status' => true,
             'data' => $tutorial,
             'message' => 'tutorial created successfully'
         ]);
-
     }
+
 
     /**
      * Display the specified resource.
@@ -44,11 +49,8 @@ class TutorialController extends Controller
     {
         $tutorial = Tutorial::find($id);
         if ($tutorial) {
-            return response()->json([
-                'status' => true,
-                'data' => $tutorial,
-                'message' => 'tutorial information'
-            ]);
+            return view('tutorials.show', ['tutorial' => $tutorial]);
+
         } else {
             return response()->json([
                 'status' => false,
@@ -58,6 +60,12 @@ class TutorialController extends Controller
         }
     }
 
+    public function edit($id)
+    {
+        $tutorial = Tutorial::find($id); // Assuming Tutorial is your model
+        return view('tutorials.edit', ['tutorial' => $tutorial]);
+    }
+
     /**
      * Update the specified resource in storage.
      */
@@ -65,7 +73,7 @@ class TutorialController extends Controller
     {
         $tutorial = Tutorial::find($id);
         $result = $tutorial->update($request->all());
-        return response()->json([
+        return view('tutorials.edit' , [
             'status' => true,
             'data' => $tutorial,
             'message' => 'tutorial updated successfully'

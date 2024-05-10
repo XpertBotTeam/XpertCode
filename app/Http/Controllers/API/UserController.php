@@ -28,10 +28,10 @@ class UserController extends Controller
             $user = auth()->user();
             $access_token = $user->createToken('authToken')->plainTextToken;
 
-            return redirect()->route('tutorials')->with([
-                'status' => 'true',
+            return redirect()->route('tutorials')->with(['status' => 'true',
                 'message' => "User Authenticated Successfully",
                 'token' => $access_token]);
+
         } else {
             return response()->json([
                 'status' => 'false',
@@ -56,10 +56,10 @@ class UserController extends Controller
 
         $access_token = $user->createToken('authToken')->plainTextToken;
 
-        return response()->json([
+        return redirect()->route('tutorials')->with([
             'status' => 'true',
             'message' => "User Registered Successfully",
-            'token' => $access_token
-        ]);
+            'token' => $access_token]);
+
     }
 }
